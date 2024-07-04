@@ -30,15 +30,14 @@ export const ItemTitle: React.FC<ItemTitleProps> = ({
           fontSize: itemSellerSize,
           color: COLORS.primary,
         }}>{itemSeller}</Text>
-        <Text>hiya</Text>
     </View>
   );
 };
 
-export const ItemPrice = () => {
+export const ItemPrice = ({price}) => {
   return (
     <View>
-      <Text>itemPrice</Text>
+      <Text style={{fontFamily: FONTS.medium, fontSize: SIZES.font, color: COLORS.primary }}>{`£${price}`}</Text>
     </View>
   );
 };
@@ -87,7 +86,7 @@ export const ItemEnd = () => {
           color: COLORS.primary,
         }}
       >
-        2h 30m
+      2h 30m
       </Text>
     </View>
   );

@@ -2,7 +2,8 @@ import React from "react";
 import { View, Image, ImageSourcePropType, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
-import CircleButton from "./Buttons";
+import CircleButton from "./Buttons/CircleButton";
+import RectButton from "./Buttons/RectangleButton";
 import {
   ItemInfo,
   ItemBidders,
@@ -17,6 +18,7 @@ type NFTCardProps = {
     image: ImageSourcePropType;
     name: string;
     creator: string;
+    price: number
   };
 };
 
@@ -37,6 +39,14 @@ const NFTCard: React.FC<NFTCardProps> = ({ data }) => {
             itemNameSize={SIZES.large}
             itemSellerSize={SIZES.small}
           />
+          <View style={{marginTop: SIZES.font,
+            flexDirection: "row", 
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}>
+        <ItemPrice price={data.price}/>
+        <RectButton handlePress={()=>{navigation.navigate("Details", {data})}}/>
+        </View>
       </View>
     </View>
   );
