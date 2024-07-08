@@ -12,7 +12,7 @@ interface RectButtonProps {
   handlePress?: () => void;
 }
 
-const RectButton: React.FC<RectButtonProps> = () => {
+const RectButton: React.FC<RectButtonProps> = ({handlePress}) => {
   return (
     <TouchableOpacity style={[styles.bidButton]} onPress={handlePress}>
       <Text
